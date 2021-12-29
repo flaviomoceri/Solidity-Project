@@ -1,5 +1,9 @@
 import './App.css';
 import { useState } from 'react';
+import { Input } from 'antd';
+import { Card } from 'antd';
+import { Row, Col } from 'antd';
+import { Button } from 'antd';
 import { ethers } from 'ethers'
 import Greeter from './artifacts/contracts/Greeter.sol/Greeter.json'
 import Token from './artifacts/contracts/Token.sol/Token.json'
@@ -80,17 +84,36 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <button onClick={fetchGreeting}>Fetch Greeting</button>
-        <button onClick={setGreeting}>Set Greeting</button>
-        <input onChange={e => setGreetingValue(e.target.value)} placeholder="Set greeting" value={greeting} />
+      <header>
+      </header>
+      <div className="App-header">
+        <Card
+    hoverable
+   className="card-app"
+  >
+    <Input className="input1" onChange={e => setGreetingValue(e.target.value)} placeholder="Set greeting" value={greeting} />
+    <div className="div1">
+   <Button className="button1" type="primary" shape="round" onClick={fetchGreeting}><h5 className="text1">Fetch Greeting</h5></Button>
+        <Button className="button1" type="primary" shape="round" onClick={setGreeting}><h5 className="text1">Set Greeting</h5></Button>
+        </div>
+  </Card>
+        
+     
 
         <br />
-        <button onClick={getBalance}>Get Balance</button>
-        <button onClick={sendCoins}>Send Coins</button>
-        <input onChange={e => setUserAccount(e.target.value)} placeholder="Account ID" />
-        <input onChange={e => setAmount(e.target.value)} placeholder="Amount" />
-      </header>
+        <Card
+    hoverable
+   className="card-app"
+  >
+    <Input className="input2" onChange={e => setAmount(e.target.value)} placeholder="Amount" />
+    <Input className="input3" onChange={e => setUserAccount(e.target.value)} placeholder="Account ID" />
+    <div className="div2">
+   <Button className="button1" type="primary" shape="round" onClick={getBalance}><h5 className="text1">Get Balance</h5></Button>
+        <Button className="button1" type="primary" shape="round" onClick={sendCoins}><h5 className="text1">Send Coins</h5></Button>
+        </div>
+  </Card>
+        </div>
+      <footer></footer>
     </div>
   );
 }
